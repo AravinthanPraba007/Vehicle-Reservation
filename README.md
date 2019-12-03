@@ -4,3 +4,8 @@ The Vehicle Reservation System has admin login and member login/register .The me
 
 ## Assumptions
 >Multiple user Login/Registration,One Admin login
+
+##Authentication
+This project uses JWT authetication for login . Once User give correct credentials .The system provides the JWT token with that user can enter the system .Once the user logout the token expires
+
+

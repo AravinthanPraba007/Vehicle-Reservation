@@ -1,0 +1,109 @@
+<!-- <p>vehicle-edit works!</p> -->
+<div class="container  vehicle-edit-container mb-5 mt-2 ml-1">
+
+	<h2> Vehicle Details</h2>
+	<div class="alert alert-success" *ngIf="vehicleEdited">Vehicle details saved successfully.</div>
+	<div class="alert alert-success" *ngIf="addVehicle">Vehicle details added successfully.</div>
+	<form [formGroup]="editForm"  *ngIf="!vehicleEdited && !addVehicle" (submit)="updateMovieItem()">
+		<!--<div class="form row">
+			*ngIf="!movieEdited && !addMovie" (submit)="updateMovieItem()"
+			<input type="hidden" class="form-control" id="id" formControlName="id" name="id" />
+        </div>-->
+        
+         <!-- Vechile Name -->
+		<div class="form-row mt-2">
+			<div class="col-12 col-lg-10 col-sm-12">
+				<label for="name">Name</label>
+				<input type="text" class="form-control" id="name" formControlName="name" name="name"  placeholder="Enter Vehicle Name"/>
+			</div>
+		</div>
+
+		<div class="form-row mt-2">
+				<div class="col-12 col-lg-10 col-sm-12">
+					<label for="number">Number</label>
+					<input type="text" class="form-control" id="number" formControlName="number" name="number" placeholder="Enter Vehicle Number"/>
+				</div>
+				
+			</div>
+
+			<div class="form-row mt-2">
+					<div class="col-6 col-lg-5 col-sm-6">
+						<div>
+						<label for="type">Type</label>
+						<input type="text" class="form-control" id="type" formControlName="type" name="type" placeholder="Enter Vehicle Type"/>
+						</div>
+						
+					</div>
+					<div class="col-6 col-lg-5 col-sm-6">
+						<div>
+							<label for="branch">Branch</label>
+							<input type="text" class="form-control" id="branch" formControlName="branch" name="branch" placeholder="Enter Vehicle Branch"/>
+						</div>
+						
+					</div>	
+				</div>
+
+				<div class="form-row mt-2">
+						<div class="col-6 col-lg-5 col-sm-6">
+							<div>
+							<label for="price">Price</label>
+							<input type="text" class="form-control" id="price" formControlName="price" name="price" placeholder="Enter Vehicle Price"/>
+						</div>
+						
+						</div>
+
+							<div class="col-6 col-lg-5 col-sm-6">
+							<div>
+									<label>Active</label>
+								</div>
+								<label for="yes" class="radio-inline">
+									<input type="radio" id="yes" [value]="true" formControlName="active" name="active">Yes &nbsp;
+								</label>
+								<label for="no" class="radio-inline">
+									<input type="radio" id="no" [value]="false" formControlName="active" name="active">No 
+								</label>
+							</div>
+					</div>
+			<div class="form-row mt-2">
+			<div class="col-12 col-sm-12 col-lg-10 col-sm-12">
+					<label for="insurance_expiry_date">Insurance_expiry_date</label>
+					<input type="text" class="form-control" id="insurance_expiry_date" name="insurance_expiry_date"
+						formControlName="insurance_expiry_date" placeholder="Enter Vehicle of insurance_expiry_date yyyy-mm-dd"/>
+					
+				</div>
+			</div>
+			<div class="form-row mt-2">
+					<div class="col-12 col-sm-12 col-lg-10 col-sm-12">
+							<label for="last_serviced_date">Last_serviced_date</label>
+							<input type="text" class="form-control" id="last_serviced_date" name="last_serviced_date"
+								formControlName="last_serviced_date"  placeholder="Enter Vehicle of last_serviced_date yyyy-mm-dd"/>
+							
+						</div>
+					</div>
+
+					<div class="form-row mt-2">
+							<div class="col-12 col-sm-12 col-lg-10 col-sm-12">
+									<label for="service_due_date">Service_due_date</label>
+									<input type="text" class="form-control" id="service_due_date" name="service_due_date"
+										formControlName="service_due_date"  placeholder="Enter Vehicle of service_due_date yyyy-mm-dd"/>
+									
+								</div>
+							</div>	
+							
+							<div class="form-row mt-2">
+									<div class="col-12 col-sm-12 col-lg-10 col-sm-12">
+											<label for="imageUrl">ImageUrl</label>
+											<input type="text" class="form-control" id="imageUrl" name="imageUrl"
+												formControlName="imageUrl"  placeholder="Enter Vehicle imageUrl"/>
+											
+										</div>
+									</div>		
+							
+			<div class="form mt-4">
+				<div class="col-12 col-sm-12 col-lg-3">
+				<button type="submit" id="vehicle_save_button" class="btn btn-primary">Submit</button>
+					</div>
+				</div>
+	</form>
+
+</div> 

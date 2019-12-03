@@ -1,0 +1,124 @@
+<!-- <p>booking works!</p> -->
+
+
+
+
+<div class="container-fluid mt-5 mx-5 mb-5">
+
+  
+
+    <div class="row" *ngIf="isCustomer && this.bookingCheckService.bookingEmpty">
+      
+      <div class="p-3 w-75 mx-auto alert alert-danger">{{error}} Use <a routerLink="/vehicle-list"
+        routerLinkActive="active-link" class="alert-link">'Add to Booking'</a> option in Vehicle list.
+    </div>
+    </div>
+
+    <div class="row" *ngIf="isCustomer && !this.bookingCheckService.bookingEmpty && this.present">
+        <div class="col-12 col-md-6 col-lg-3 col-sm-12 d-flex align-items-stretch mb-3" >
+          <div class="card">
+            <img class="card-img-top" src={{booking.vehicle.imageUrl}}  />
+            <div class="card-body">
+              <div class="card-title font-weight-bold">
+                <div class="row">
+                  <div class="col-6 mb-2">
+                    Booking Id : {{booking.id}}
+                  </div>
+                
+                   
+                </div>
+                <div class="row">
+                    <div class="col-12 mb-2">
+                        Vehicle Number : {{booking.vehicle.number}}
+                      </div>
+                </div>
+                <div class="row">
+                    <div class="col-6 mb-2">
+                      Trip Start date : {{booking.bookingStart | date:'dd/MM/yyyy'}}
+                    </div>
+                    <div class="col-6 mb-2">
+                        Trip End date : {{booking.bookingEnd | date:'dd/MM/yyyy'}}
+                      </div>
+                  </div>
+
+                  <div class="row">
+                      <div class="col-12 mb-2">
+                        Price : {{booking.price}}
+                      </div>
+                      <div class="col-12 mb-2">
+                          <div *ngIf=booking.paid>
+                              <span class="badge badge-success">Paid</span>
+                            </div>
+                            <div *ngIf=!booking.paid>
+                              <span class="badge badge-danger">Not paid</span>
+                            </div>
+                        </div>
+
+                         <div class="row mt-2 mx-1 ">
+                            <div class="col-12 mb-2">
+                                <a (click)=" onCancelBook(booking.id,booking.vehicle.id)"
+                                class="btn btn-secondary"><i class="material-icons"
+                                  style="vertical-align:middle">close</i>Cancel</a>
+                              </div>
+                          <div class="col-12 mb-2" *ngIf=!booking.paid>
+                              <a (click)=" onPay(booking)"
+                              class="btn btn-success "><i class="material-icons"
+                                style="vertical-align:middle">account_balance_wallet</i>PayNow</a>
+                            </div>
+                    </div>
+
+            
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+        <div class="row" *ngIf="isAdmin">
+          <div class="col-12 col-md-6 col-lg-3 col-sm-12 d-flex align-items-stretch mb-3" *ngFor="let booking of booking">
+            <div class="card">
+              <img class="card-img-top" src={{booking.vehicle.imageUrl}}  />
+              <div class="card-body">
+                <div class="card-title font-weight-bold">
+                  <div class="row">
+                    <div class="col-6">
+                     Bookind Id {{booking.id}}
+                    </div>
+                  </div>
+
+                  <div class="row">
+                      <div class="col-12 mb-2">
+                          Vehicle Number : {{booking.vehicle.number}}
+                        </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-6 mb-2">
+                        Trip Start date : {{booking.bookingStart | date:'dd/MM/yyyy'}}
+                      </div>
+                      <div class="col-6 mb-2">
+                          Trip End date : {{booking.bookingEnd | date:'dd/MM/yyyy'}}
+                        </div>
+                    </div>
+  
+                    <div class="row">
+                        <div class="col-12 mb-2">
+                          Price : {{booking.price}}
+                        </div>
+                        <div class="col-12 mb-2">
+                            <div *ngIf=booking.paid>
+                                <span class="badge badge-success">Paid</span>
+                              </div>
+                              <div *ngIf=!booking.paid>
+                                <span class="badge badge-danger">Not paid</span>
+                              </div>
+                          </div>
+              
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      </div>

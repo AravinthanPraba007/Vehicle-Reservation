@@ -1,0 +1,137 @@
+<!-- <p>vehicle-info works!</p> -->
+<div class="container-fluid mb-5">
+    <div class="alert alert-warning text-center" *ngIf="!this.bookingCheckService.bookingEmpty" ><strong> You already have a booking</strong></div>
+    <div class="row">
+      <div class="col-12 col-md-6 col-lg-3 col-sm-12 d-flex align-items-stretch mb-3" *ngFor="let vehicleItem of vehicle">
+        <div class="card">
+          <img class="card-img-top" src={{vehicleItem.imageUrl}} alt={{vehicleItem.name}} />
+          <div class="card-body">
+            <div class="card-title font-weight-bold">
+              <div class="row">
+                <div class="col-6">
+                  {{vehicleItem.name}}
+                </div>
+                <div class="col-6 text-right text-danger">
+                  {{vehicleItem.price| currency :'₹' : 'symbol' : '1.0-0' }}
+                </div>
+              </div>
+            </div>
+            <div class="row mb-2" *ngIf="isEditAllowed()">
+              <div class="col-6" *ngIf=vehicleItem.active>
+                <span class="badge badge-success">Active</span>
+              </div>
+              <div class="col-6" *ngIf=!vehicleItem.active>
+                <span class="badge badge-danger">Inactive</span>
+              </div>
+              <!-- <div class="col-6 text-right">
+                  <span class="badge badge-info">Type</span>
+                  {{vehicleItem.type}}
+                </div> -->
+              <!-- <div class="col-6 text-right" *ngIf=vehicleItem.hasTeaser>
+                <i id="movie_cruiser_done_teaser_icon" class="material-icons" style="vertical-align:middle">done</i><span
+                  class="badge badge-info m-2">Teaser</span>
+              </div> -->
+              <!-- <div class="col-6 text-right" *ngIf="!vehicleItem.hasTeaser">
+                <i class="material-icons text-danger" style="vertical-align:middle">close</i><span
+                  class="badge badge-danger m-2">Teaser</span>
+              </div> -->
+            </div>
+            <div class="row mb-2" >
+                <div class="col-6" *ngIf=vehicleItem.status>
+                    <span class="badge badge-danger">Already Booked</span>
+                </div>
+                <div class="col-6" *ngIf=!vehicleItem.status>
+                    <span class="badge badge-success">Available for booking</span>
+                </div>
+               
+            </div>
+            
+            <div class="row" *ngIf="itemAdded && itemId==vehicleItem.id">
+              <div class="col-12">
+                <p class="p-3 alert alert-success">Movie added successfully.</p>
+              </div>
+            </div>
+            <div class="row mb-2" *ngIf="!isEditAllowed()">
+                <div class="col-12 text-left">
+                    <span class="badge badge-info">Type</span>
+                    {{vehicleItem.type}}
+                  </div>
+                 
+              <!-- <div class="col-6 text-right" *ngIf="vehicleItem.hasTeaser">
+                <i id="movie_cruiser_done_teaser_icon" class="material-icons" style="vertical-align:middle">done</i><span
+                  class="badge badge-info m-2">Teaser</span>
+              </div>
+              <div class="col-6 text-right" *ngIf="!vehicleItem.hasTeaser">
+                <i class="material-icons text-danger" style="vertical-align:middle">close</i><span
+                  class="badge badge-danger m-2">Teaser</span>
+              </div> -->
+            </div>
+            <div class="row" *ngIf="isEditAllowed()">
+            
+
+              <div class="col-12 font-weight-light">
+                  <div>
+                    <i class="material-icons" style="vertical-align:middle">schedule</i>Service_due_date
+                  </div>
+                  <div class="ml-5">
+                    {{vehicleItem.service_due_date | date:'dd/MM/yyyy'}}
+                  </div>
+                </div>
+
+                <div class="col-12 font-weight-light">
+                    <div>
+                      <i class="material-icons" style="vertical-align:middle">schedule</i>Insurance_expiry_date
+                    </div>
+                    <div class="ml-5">
+                      {{vehicleItem.insurance_expiry_date | date:'dd/MM/yyyy'}}
+                    </div>
+                  </div>
+                  <div class="col-12 font-weight-light">
+                      <div>
+                        <i class="material-icons" style="vertical-align:middle">check</i>Last_serviced_date
+                      </div>
+                      <div class="ml-5">
+                        {{vehicleItem.last_serviced_date | date:'dd/MM/yyyy'}}
+                      </div>
+                    </div>
+            </div>
+                  <div class="row mt-2 " *ngIf="isEditAllowed()">
+              <div class="col-6">
+                <a [routerLink]="['/vehicle-edit',vehicleItem.id]" id="vehicle_button_purple"
+                  class="btn btn-success "><i class="material-icons"
+                    style="vertical-align:middle">edit</i>Edit</a>
+              </div>
+              <div class="col-6">
+                  <a (click)="onDeleteVehicle(vehicleItem.id)"
+                    class="btn btn-danger"><i class="material-icons"
+                      style="vertical-align:middle">delete_forever</i>Remove</a>
+                </div>
+            </div>
+
+            <!-- <div *ngIf="!this.bookingCheckService.bookingEmpty">
+              Already a Car is booked for you
+              <div class="row mt-4">
+                <div class="col-12">
+                  <div class="alert alert-secondary">You already have a booking</div>
+                </div>
+            </div>
+            </div> -->
+
+            <div class="row" *ngIf="!isEditAllowed()">
+              <div class="col-12 mt-2">
+                <button id="vehicle_button_purple" [disabled]="!this.bookingCheckService.bookingEmpty || vehicleItem.status " class="btn btn-success float-right" 
+                [routerLink]="['/bookingform',vehicleItem.id]" ><i class="material-icons"
+                    style="vertical-align:middle">favorite</i>Add to Booking</button>
+              </div>
+              
+             
+
+              
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

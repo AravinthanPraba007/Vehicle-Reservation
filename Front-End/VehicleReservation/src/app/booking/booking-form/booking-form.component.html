@@ -1,0 +1,42 @@
+<!-- <p>booking-form works!</p> -->
+<!-- <div class="container  vehicle-edit-container mb-5 mt-2 ml-1"> -->
+
+		
+	
+	<div class="alert alert-success  w-75 mx-auto mt-5 mb-5" *ngIf="isVehicleBooked()">Vehicle Booked successfully.</div>
+	<form [formGroup]="editForm"  *ngIf="!isVehicleBooked()" (submit)="addBooking()">
+			<div class="container login-container border mt-2 p-2 mb-5 mt-5">
+			<div class="mx-4 mt-3">
+					<h2>Booking Vehicle </h2>
+			</div>
+
+			<div class="form-row mt-3 mx-4">
+					<div class="col-12 col-sm-12 col-lg-10 ">
+							<!-- <div> -->
+							<label for="bookingStart">Trip Start</label>
+							<input type="date" class="form-control" id="bookingStart" name="bookingStart"
+								formControlName="bookingStart"  placeholder="Enter Vehicle of trip Start day yyyy-mm-dd"/>
+							
+						</div>
+					</div>
+
+					<div class="form-row mt-2 mx-4 ">
+							<div class="col-12 col-sm-12 col-lg-10 ">
+					
+									<label for="bookingEnd">Trip End</label>
+									<input type="date" class="form-control" id="bookingEnd" name="bookingEnd"
+										formControlName="bookingEnd"  placeholder="Enter Vehicle of trip end date yyyy-mm-dd"/>
+									
+								</div>
+							</div>	
+							
+							
+			<div class="form mt-4 mx-3 mb-3">
+				<div class="col-12 col-sm-12 col-lg-10 " >
+				<button type="submit" id="vehicle_save_button" class="btn btn-primary">Book now</button>
+					</div>
+				</div>
+
+			</div> 
+	</form>
+

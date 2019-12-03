@@ -1,0 +1,67 @@
+/* You can add global styles to this file, and also import other style files */
+#vehicle-reservation-footer {
+   /* position:fixed; */
+        bottom:0;
+    background-color: #5d1d5d;
+    width: 100%;
+  }
+  
+/* main navigation background color */
+#vehicle-reservation-main-nav {
+    background-color: #5d1d5d;
+  }
+
+  .vehicle-reservation-main-icon.material-icons {
+    font-size: 40px;
+  }
+
+
+ /*color for buttons as purple*/
+ /* used in signup*/
+#movie_cruiser_button_purple,
+#vehicle_save_button {
+  background-color: #4d004d;
+  border-color: #4d004d;
+} 
+
+
+
+/*hand pointer for trash can in remove favorites*/
+.material-icons.trash-can {
+  cursor: pointer;
+}
+
+/*login page container*/
+.container.login-container.border {
+  max-width: 400px;
+}
+
+/*for a smaller container*/
+.container.width-half-screen {
+  max-width: 500px;
+}
+
+
+/*edit movie container*/
+.container.vehicle-edit-container {
+  max-width: 1500px;
+}
+
+/*color for buttons as purple*/
+#vehicle_button_purple,
+#vehicle_save_button {
+  background-color: #4d004d;
+  border-color: #4d004d;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+#vehicle_main_search_image {
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQLD7NfplcSCFOyA3tGuM4od-upjdxjflyPdkVj4PHWgM3HL--Y");
+  background-repeat: repeat;
+}
+
+body {
+  height: 100%;
+}

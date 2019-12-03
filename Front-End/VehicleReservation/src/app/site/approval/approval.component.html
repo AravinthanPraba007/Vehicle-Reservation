@@ -1,0 +1,37 @@
+<!-- <p>approval works!</p> -->
+
+
+<div class="container width-half-screen mt-5 mb-5" *ngIf="error == ''">
+    <h3>Approval</h3>
+    <div class="p-3 alert alert-success" *ngIf="size==0">No approval is pending</div>
+    <div *ngIf="!size==0">
+    <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-center">
+            <h3> No of Approval pending :
+           {{size}} </h3>
+           
+          </li>
+      
+      <li class="list-group-item d-flex justify-content-between " *ngFor="let user of users">
+       <h4>
+        {{user.username}} </h4>
+        <span class="font-weight-light">
+          <div class="float-right">
+            
+                <i (click)="onApprovalClick(user)" class="material-icons trash-can pr-2 text-secondary" style="vertical-align:middle">check</i>
+            
+                <i (click)="onDismissClick(user.id)" class="material-icons trash-can pr-2 text-secondary" style="vertical-align:middle">close</i>
+
+               
+
+   
+            </div>
+
+            
+        </span>
+      
+      </li>
+     
+    </ul>
+  </div>
+  </div>

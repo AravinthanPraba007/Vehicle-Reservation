@@ -1,0 +1,17 @@
+<!-- <p>vehicle-search works!</p> -->
+
+<div class="jumbotron" id="vehicle_main_search_image">
+       
+        <label class="control-label" for="Find Vehicle">
+          <h1 class="text-light pl-5 pt-5 pl-2 ">Find Vehicle</h1>
+        </label>
+      
+        <div class="input-group w-85 mx-auto">
+          <div class="input-group-prepend">
+            <span><i class="input-group-text material-icons ml-5 " style="vertical-align:middle">search</i></span>
+          </div>
+          <input class="form-control" id="search" name="search" type="text" (keyup)="searchVehicle()" [(ngModel)]="searchKey"
+            placeholder="Search for vehicle" />
+        </div>
+      </div>
+      <app-vehicle-info [vehicle]='vehicleSearch'></app-vehicle-info>
